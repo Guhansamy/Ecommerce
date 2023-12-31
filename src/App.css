@@ -1,38 +1,57 @@
-.App {
-  text-align: center;
-}
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+  @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+  
+  @import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+  @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  @import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+
+
+
+
+nav > ul {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-right: 70px;
 }
 
-.App-link {
-  color: #61dafb;
+nav > ul >li{
+  list-style-type: none;
+  margin: 10px;  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+nav > ul > li > a {
+  text-decoration: none;
+  color: black;
 }
+
+nav >ul > li :hover{
+  color: red;
+}
+
+.scrollable-container {
+  overflow-x: hidden; /* Hide overflow for smooth scrolling effect */
+  width: 100%; /* Or any width you want */
+  height: 300px; /* Or any height you want */
+  margin-bottom: 20px;
+  background-color: aqua;
+}
+
+.scrollable-content {
+  display: flex;
+  transition: transform 0.5s; /* Smooth transition for scrolling */
+}
+
+.scroll-item {
+  width: 100%; /* Width of each image */
+  height: 300px; /* Full height */
+  object-fit: cover; /* Maintain aspect ratio */
+}
+
+
+
