@@ -12,7 +12,7 @@ const Body = () => {
 
     useEffect( () => {
         fetchdata()
-    } , [location.pathname]);
+    } , []);
 
     const fetchdata = async () => {
         try {
@@ -22,8 +22,6 @@ const Body = () => {
             console.log(json?.products);
 
             setProduct(json?.products);
-
-            console.log(json?.products.rating)
         } 
         catch (error) { 
             console.error('Error:', error);
