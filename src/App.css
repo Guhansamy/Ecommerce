@@ -31,7 +31,7 @@ nav > ul > li > a {
 }
 
 nav >ul > li :hover{
-  color: red;
+  color: teal;
 }
 
 .scrollable-container {

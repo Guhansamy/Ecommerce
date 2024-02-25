@@ -25,7 +25,7 @@ const Subheader = () => {
 
                     <Link to= "/fragrance/" >
                     <div className="flex flex-col" >
-                        <img src='https://p.kindpng.com/picc/s/23-239480_perfume-masculino-hugo-boss-the-scent-eau-de.png' 
+                        <img src='https://img.freepik.com/free-vector/blue-glass-spray-bottle_88138-34.jpg?1&w=740&t=st=1708748088~exp=1708748688~hmac=5f2f018e382bc77579270d5b2350d36449a95ced962d8c6984d1f353a1411000' 
                         className="h-[70px] w-[70px]"/>
                         <div className=" flex font-light justify-center"> Fragrances </div>
                     </div>

@@ -5,14 +5,20 @@ import Scrollableimg from "./Scrollableimg";
 import Item from "./Item";
 import { Link,useLocation } from "react-router-dom";
 
-const Body = () => {
+const Body = ( {searchThing} ) => {
     const [product , setProduct] = useState([]);
+    const [searchPro, setSearchPro] = useState([]);
     const location = useLocation();
-    const[test,setTest] = useState([]);
-
     useEffect( () => {
         fetchdata()
     } , []);
+
+    useEffect(() => {
+        // Call filteredProducts when searchThing changes
+        filteredProducts();
+    }, [searchThing]);
+
+    console.log("let check for body :" + searchThing);
 
     const fetchdata = async () => {
         try {
@@ -22,12 +28,38 @@ const Body = () => {
             console.log(json?.products);
 
             setProduct(json?.products);
+            setSearchPro(json?.products);
         } 
         catch (error) { 
             console.error('Error:', error);
         }
     }
 
+    function filteredProducts () {
+        const filterData = product.filter(item => {
+
+            return (
+                item.title.toLowerCase().includes(searchThing.toLowerCase())
+            )
+        });
+        setSearchPro(filterData);
+        console.log(searchPro + " : value of Search da")
+    }
+
+    // function filteredProducts() {
+    //     if (searchThing && typeof searchThing === "string" && searchThing.trim() !== "") {
+    //         const filterData = product.filter(item => {
+    //             return (
+    //                 item.title.toLowerCase().includes(searchThing.toLowerCase())
+    //             )
+    //         });
+    //         setSearchPro(filterData);
+    //     } else {
+    //         setSearchPro(product);
+    //     }
+    // }
+    
+    
 
     return (
         <div className="flex flex-col justify-center items-center">

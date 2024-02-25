@@ -1,11 +1,9 @@
 import { useLocation, useParams, Outlet } from "react-router-dom";
 import { useState } from "react";
-import star from "../assets/star.png"
-import hand from "../assets/right-hand.png"
 import bullet from "../assets/bullet.png"
 import staring from "../assets/staring.png"
-import thunder from "../assets/lighting.png"
-import cart from "../assets/shopping-cart.png"
+import { useCart } from 'react-use-cart';
+
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 </style>
@@ -16,6 +14,13 @@ const Parcard = () => {
 
     const location = useLocation();
     const data = location.state.data;
+
+    const {addItem} = useCart();
+
+
+    const addToCart = (data) =>{
+        addItem(data);
+    }
 
     console.log(data);
 
@@ -44,6 +49,19 @@ const Parcard = () => {
     let ten = Math.round(v);
     let emi = Math.round((total*10)/100);
 
+    
+    // const dispatch = useDispatch();  
+
+    // const handleAddItem = (data) => {
+    //     dispatch(addItem(data));
+    //   }
+
+    //  function handleAddItem(item ){
+    //     dispatch(addItem(data));
+    // }
+
+      console.log("ithu vanthu next to handleAddItem pa");
+
     return (
         <div>
             <div className=" flex flex-row w-90% bg-white mr-5 ml-5 mt-10 rounded-xl">
@@ -68,7 +86,8 @@ const Parcard = () => {
                         
                         <div className="flex flex-row bg-purple-500 rounded-lg ml-5 mb-2 h-10 items-center">
                             <img src="https://cdn-icons-png.flaticon.com/128/1404/1404364.png" alt="thunde" className="h-[25px] w-[25px] ml-4 mr-2" />
-                            <button className="text-white mr-6">Add To Cart</button>
+                            <button className="text-white mr-6" onClick={()=> addToCart(data)}>
+                                Add To Cart</button>
                         </div>
                     </div>
                 </div>
@@ -145,8 +164,6 @@ const Parcard = () => {
                             ))}
                         </div> */}
 
-                        
-
                     </div>
 
                 </div>        
@@ -159,3 +176,5 @@ const Parcard = () => {
 }
 
 export default Parcard;
+
+
